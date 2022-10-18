@@ -1,4 +1,4 @@
 import './bootstrap';
 
-import {ZegoExpressEngine} from 'zego-express-engine-webrtc'
+import {ZegoExpressEngine} from 'zego-express-engine-webrtc';
 window.ZegoExpressEngine = {ZegoExpressEngine};

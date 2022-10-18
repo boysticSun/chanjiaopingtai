@@ -6,8 +6,8 @@
     <div class="card ">
       <div class="card-header">
         <h1>
-          LiveRoom
-          <a class="btn btn-success float-xs-right" href="{{ route('live_rooms.create') }}">Create</a>
+          {{ __('LiveRoom') }}
+          <a class="btn btn-success float-xs-right" href="{{ route('live_rooms.create') }}">{{ __('Create LiveRoom') }}</a>
         </h1>
       </div>
 
