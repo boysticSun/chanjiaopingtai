@@ -5,8 +5,14 @@
     "LiveRoom": "直播间",
     "Create LiveRoom": "创建直播间",
     "Edit LiveRoom": "编辑直播间",
+    "Login LiveRoom": "登录直播间",
+    "Create Stream": "创建流",
+    "Start Publishing Stream": "开始推流",
     "LiveRoom Title": "直播间标题",
+    "Live category": "直播分类",
     "LiveRoom Excerpt": "直播间简介",
+    "Anchor": "主播",
+    "Please Select": "请选择",
     "Save": "保存",
     "Back": "返回"
 }

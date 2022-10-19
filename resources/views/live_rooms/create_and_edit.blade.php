@@ -34,8 +34,13 @@
                 	<input class="form-control" type="text" name="title" id="title-field" value="{{ old('title', $live_room->title ) }}" />
                 </div>
                 <div class="mb-3">
-                    <label for="live_category_id-field">Live_category_id</label>
-                    <input class="form-control" type="text" name="live_category_id" id="live_category_id-field" value="{{ old('live_category_id', $live_room->live_category_id ) }}" />
+                    <label for="live_category_id-field">{{ __('Live category') }}</label>
+                    <select class="form-control" name="live_category_id" required>
+                      <option value="" hidden disabled @selected(old('live_category_id', $live_room->live_category_id) == '')>{{ __('Please Select') }}</option>
+                      @foreach ($categories as $value)
+                        <option value="{{ $value->id }}" @selected(old('live_category_id', $live_room->live_category_id) == $value->id)>{{ $value->name }}</option>
+                      @endforeach
+                    </select>
                 </div>
                 <div class="mb-3">
                 	<label for="excerpt-field">{{ __('LiveRoom Excerpt') }}</label>

@@ -7,7 +7,15 @@
       <div class="card-header">
         <h1>
           {{ __('LiveRoom') }}
+          @guest
+          <a class="btn btn-info float-xs-right" href="{{ route('login') }}">{{ __('Login') }}</a>
+          @else
+          @if(Auth::user()->live_room)
+          <a class="btn btn-warning float-xs-right" href="{{ route('live_rooms.edit', Auth::user()->live_room->id) }}">{{ __('Edit LiveRoom') }}</a>
+          @else
           <a class="btn btn-success float-xs-right" href="{{ route('live_rooms.create') }}">{{ __('Create LiveRoom') }}</a>
+          @endif
+          @endguest
         </h1>
       </div>
 
@@ -17,7 +25,10 @@
             <thead>
               <tr>
                 <th class="text-xs-center">#</th>
-                <th>Title</th> <th>User_id</th> <th>Live_category_id</th> <th>Excerpt</th>
+                <th>{{ __('LiveRoom Title') }}</th>
+                <th>{{ __('Anchor') }}</th>
+                <th>{{ __('Live category') }}</th>
+                <th>{{ __('LiveRoom Excerpt') }}</th>
                 <th class="text-xs-right">OPTIONS</th>
               </tr>
             </thead>
@@ -27,7 +38,10 @@
               <tr>
                 <td class="text-xs-center"><strong>{{$live_room->id}}</strong></td>
 
-                <td>{{$live_room->title}}</td> <td>{{$live_room->user_id}}</td> <td>{{$live_room->live_category_id}}</td> <td>{{$live_room->excerpt}}</td>
+                <td>{{$live_room->title}}</td>
+                <td>{{$live_room->user->name}}</td>
+                <td>{{$live_room->live_category->name}}</td>
+                <td>{{$live_room->excerpt}}</td>
 
                 <td class="text-xs-right">
                   <a class="btn btn-sm btn-primary" href="{{ route('live_rooms.show', $live_room->id) }}">
