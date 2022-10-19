@@ -21152,3 +21152,10 @@ body {
   border-radius: 4px;
   padding: 3px;
 }
+
+.live_rooms-show-page .live-window {
+  overflow: hidden;
+}
+.live_rooms-show-page .live-window .live-local-video {
+  width: 100%;
+}

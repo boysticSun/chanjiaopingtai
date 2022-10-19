@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container pb-5">
   <div class="col-md-10 offset-md-1">
     <div class="card ">
       <div class="card-header">
@@ -13,34 +13,19 @@
         <div class="card-block bg-light">
           <div class="row">
             <div class="col-md-6">
-              <a class="btn btn-link" href="{{ route('live_rooms.index') }}"><- {{ __('Back') }}</a>
+              <a class="btn btn-link float-start py-2" href="{{ route('live_rooms.index') }}"><- {{ __('Back') }}</a>
+              <div class="float-start p-2"><span> ▪ {{ __('Anchor') }}:</span><a href="/">{{ $live_room->user->name }}</a></div>
+              <div class="float-start p-2"><span> ▪ {{ __('Live category') }}:</span><a href="/">{{ $live_room->live_category->name }}</a></div>
             </div>
             <div class="col-md-6">
-              <a class="btn btn-sm btn-warning float-right mt-1" href="{{ route('live_rooms.edit', $live_room->id) }}">
+              <a class="btn btn-sm btn-warning float-end mt-1" href="{{ route('live_rooms.edit', $live_room->id) }}">
                 {{ __('Edit LiveRoom') }}
               </a>
             </div>
           </div>
         </div>
         <br>
-
-        <label>{{ __('LiveRoom Title') }}</label>
-        <p>
-          {{ $live_room->title }}
-        </p>
-        <label>{{ __('Anchor') }}</label>
-        <p>
-          {{ $live_room->user->name }}
-        </p>
-        <label>{{ __('Live category') }}</label>
-        <p>
-          {{ $live_room->live_category->name }}
-        </p>
-        <label>{{ __('LiveRoom Excerpt') }}</label>
-        <p>
-          {{ $live_room->excerpt }}
-        </p>
-        <label>
+        <label class="pb-2">
           <a class="btn btn-sm btn-primary float-right mt-1" href="javascript:;" onclick="loginRoom()">
             {{ __('Login LiveRoom') }}
           </a>
@@ -51,9 +36,17 @@
             {{ __('Start Publishing Stream') }}
           </a>
         </label>
-        <p>
-          <video id="local-video" autoplay muted playsinline controls></video>
-        </p>
+        <div class="row m-0">
+          <div class="col-md-9 p-0 bg-black live-window">
+            <video id="local-video" class="live-local-video" autoplay muted playsinline controls></video>
+          </div>
+          <div class="col-md-3 border p-0">
+            <div class="p-2">
+              <label class="pb-2">{{ __('LiveRoom Excerpt') }}</label>
+              <p>{{ $live_room->excerpt }}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

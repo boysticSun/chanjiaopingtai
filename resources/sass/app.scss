@@ -73,3 +73,15 @@ body {
     padding: 3px;
   }
 }
+
+.live_rooms-show-page {
+
+  .live-window {
+    overflow: hidden;
+
+    .live-local-video {
+      width: 100%;
+    }
+  }
+
+}
